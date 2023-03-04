@@ -14,7 +14,7 @@
 
 <body>
     <div class="form-screen">
-        <a href="index.html" class="ticketpal-logo"><i class="fas fa-sun"></i> <span>TicketPal </span></a>
+        <a href="" class="ticketpal-logo"><i class="fas fa-sun"></i> <span>TicketPal </span></a>
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Create an account </div>
             <div class="card-body">

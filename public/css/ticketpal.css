@@ -9547,3 +9547,22 @@ body {
   color: #fff;
   background: #1E232D; }
 
+.badge-new {
+  color: #fff;
+  background-color: #880000; 
+}
+
+.badge-closed {
+  color: #fff;
+  background-color: #008800; 
+}
+
+.badge-active {
+  color: #fff;
+  background-color: #008888; 
+}
+
+.badge-open {
+  color: #fff;
+  background-color: #888800; 
+}

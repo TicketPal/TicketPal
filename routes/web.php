@@ -36,41 +36,49 @@ Route::controller(AuthController::class)->group(function(){
 
 Route::group(['middleware' => ['CheckLogin']],function(){
 	
-	Route::get('/dashboard', [DashController::class, 'dashboard'])->name('Dashboard');
+	Route::group(['middleware' => ['GetStatus']],function(){
+		
+		Route::get('/dashboard', [DashController::class, 'dashboard'])->name('Dashboard');
+		
+		Route::get('/users', [UserController::class, 'users'])->name('Users');
+		
+		Route::get('/users/{id}', [UserController::class, 'users'])->name('Users')->where('id', '[0-9]*');
+		
+		Route::get('/users/create', [UserController::class, 'create'])->name('Create User');
+		
+		Route::get('/profile', [UserController::class, 'Profile'])->name('User Profile');
+		
+		Route::get('/tickets', [TicketController::class, 'Tickets'])->name('Ticket\'s');
+		
+		Route::get('/tickets/{id}', [TicketController::class, 'Tickets'])->name('Ticket\'s')->where('id', '[0-9]*');
+		
+		Route::get('/tickets/create', [TicketController::class, 'Create'])->name('Create Tickets Page');
+		
+		Route::get('/tickets/open/{id}', [TicketController::class, 'OpenTicket'])->name('Open Ticket')->where('id', '[0-9]*');
+		
+		Route::get('/settings/general', [SettingController::class, 'general'])->name('Setting\'s');
+		
+		Route::get('/tickets/open/{status}/{id}', [TicketController::class, 'OpenTicketStatus'])->name('Open Ticket with status')->where('status', '[a-z]*')->where('id', '[0-9]*');
+		
+		Route::get('/tickets/open/{status}', [TicketController::class, '_OpenTicketStatus'])->name('Open Ticket with status')->where('status', '[a-z]*');
 	
-	Route::get('/users', [UserController::class, 'users'])->name('Users');
-	
-	Route::get('/users/{id}', [UserController::class, 'users'])->name('Users')->where('id', '[0-9]*');
-	
-	Route::get('/users/create', [UserController::class, 'create'])->name('Create User');
-	
-	Route::post('/users/delete', [UserController::class, 'delete'])->name('Delete Users');
-	
-	Route::post('/users/createuser', [UserController::class, 'CreateUser'])->name('Create Users');
-	
-	Route::get('/profile', [UserController::class, 'Profile'])->name('User Profile');
-	
-	Route::post('/profileupdate', [UserController::class, 'UpdateProfile'])->name('Update Profile');
-	
-	Route::get('/tickets', [TicketController::class, 'Tickets'])->name('Ticket\'s');
-	
-	Route::get('/tickets/{id}', [TicketController::class, 'Tickets'])->name('Ticket\'s')->where('id', '[0-9]*');
-	
-	Route::post('/tickets/delete', [TicketController::class, 'delete'])->name('Delete Tickets');
-	
-	Route::get('/tickets/create', [TicketController::class, 'Create'])->name('Create Tickets Page');
-	
-	Route::post('/tickets/createticket', [TicketController::class, 'CreateTicket'])->name('Create Tickets');
-	
-	Route::get('/tickets/open/{id}', [TicketController::class, 'OpenTicket'])->name('Open Ticket')->where('id', '[0-9]*');
+	});
 	
 	Route::post('/tickets/write/{id}', [TicketController::class, 'WriteTicket'])->name('Write Ticket')->where('id', '[0-9]*');
 	
 	Route::post('/tickets/status/{id}', [TicketController::class, 'TicketStatus'])->name('Close Ticket')->where('id', '[0-9]*');
 	
-	Route::get('/settings/general', [SettingController::class, 'general'])->name('Setting\'s');
-	
 	Route::post('/settings/update', [SettingController::class, 'Update'])->name('Setting Update\'s');
+	
+	Route::post('/users/delete', [UserController::class, 'delete'])->name('Delete Users');
+	
+	Route::post('/users/createuser', [UserController::class, 'CreateUser'])->name('Create Users');
+	
+	Route::post('/profileupdate', [UserController::class, 'UpdateProfile'])->name('Update Profile');
+	
+	Route::post('/tickets/delete', [TicketController::class, 'delete'])->name('Delete Tickets');
+	
+	Route::post('/tickets/createticket', [TicketController::class, 'CreateTicket'])->name('Create Tickets');
 	
 });
 	

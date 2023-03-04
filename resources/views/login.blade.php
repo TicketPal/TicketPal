@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="../css/ticketpal.css">
     <script src="js/Chart.bundle.min.js"></script>
     <script src="js/chart-js-config.js"></script>
-    <title>TicketPal  - Bootstrap Dashboard Template</title>
+    <title>TicketPal - Login</title>
 </head>
 <body>
     <div class="form-screen">
-        <a href="index.html" class="ticketpal-logo"><i class="fas fa-sun"></i> <span>TicketPal </span></a>
+        <a href="" class="ticketpal-logo"><i class="fas fa-sun"></i> <span>TicketPal </span></a>
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Please sign in </div>
             <div class="card-body">

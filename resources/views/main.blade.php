@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="/js/chart-js-config.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <title>TicketPal  - Bootstrap Dashboard Template</title>
+    <title>TicketPal</title>
 	<meta name="csrf_token" content="{{ csrf_token() }}" />
 </head>
 <body>

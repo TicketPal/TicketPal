@@ -11,7 +11,7 @@
 		<input type="text" class="searchbox-input" placeholder="type to search">
 	</form-->
 	<div class="tools">
-		<a href="https://github.com/subet/ticketpal" target="_blank" class="tools-item">
+		<a href="https://github.com/TicketPal/TicketPal" target="_blank" class="tools-item">
 			<i class="fab fa-github"></i>
 		</a>
 		<a href="#!" class="tools-item">

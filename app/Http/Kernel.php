@@ -47,6 +47,10 @@ class Kernel extends HttpKernel
         'CheckLogin' => [
             Middleware\CheckLogin::class,
         ],
+
+        'GetStatus' => [
+            Middleware\GetStatus::class,
+        ],
     ];
 
     /**

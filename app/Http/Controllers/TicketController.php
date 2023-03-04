@@ -10,9 +10,8 @@ use App\Models\TicketContent;
 
 class TicketController extends Controller
 {
-	public function Tickets($id = 0){
+	public function Tickets(Request $request, $id = 0){
 		$data['template'] = 'tickets';
-		//
 		//select DISTINCT `ticket_contents`.`node`,`ticket_contents`.`email`, tickets.title, tickets.status from `tickets` join `ticket_contents` on `tickets`.`id` = `ticket_contents`.`node` ORDER BY `ticket_contents`.`node`;
         $tickets = DB::table('tickets')
 		->select('node','email', 'title', 'status')
@@ -61,6 +60,27 @@ class TicketController extends Controller
 		//->orderBy('id', 'desc')
 		$contents = DB::table('ticket_contents')->where('node',$id)->get();
         return view('main',compact('data','tickets','contents'));
+	}
+	
+	public function _OpenTicketStatus($status){
+		return $this->OpenTicketStatus($status, 0);
+	}
+	
+	public function OpenTicketStatus($status, $id){
+		$id = (int)$id;
+		$data['template'] = 'stickets';
+        $tickets = DB::table('tickets')
+		->select('node','email', 'title', 'status')
+		->Join('ticket_contents', 'tickets.id', '=', 'ticket_contents.node')
+		->distinct('node')
+		->offset($id*10)
+		->limit(10)
+		->where('status',$status)
+		->get();
+		$tk = new \stdClass(); 
+		$tk->next = ($id + 1);
+		$tk->previous = (($id -1) < 0)? 0 : ($id - 1);
+        return view('main',compact('data','tickets','tk','status'));
 	}
 	
 	public function WriteTicket(Request $request){

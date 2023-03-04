@@ -1,6 +1,6 @@
 <div class="col-lg-12">
 	<h5 class="dash-title">{{ $tickets->title }}
-	<span class="badge badge-pill badge-primary float-right ml-2">{{ $tickets->status }}</span>
+	<span class="badge badge-pill badge-{{ $tickets->status }} float-right ml-2">{{ $tickets->status }}</span>
 	<span class="badge badge-pill badge-primary float-right ml-2">{{ $tickets->user }}</span>
 	<span class="badge badge-pill badge-primary float-right ml-2">{{ $tickets->created_at }}</span>
 	</h5>

@@ -2,10 +2,10 @@
     <div class="dash-title">
 		<a href="/tickets/create" ><button type="button" class="btn btn-primary">Create Ticket</button></a>
 		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteticket">Delete Ticket's</button>
-		<a href="/tickets/{{ $tk->next }}" ><button type="button" class="btn btn-warning float-right ml-2"><i class="
+		<a href="/tickets/open/{{ $status }}/{{ $tk->next }}" ><button type="button" class="btn btn-warning float-right ml-2"><i class="
 fas fa-angle-right"></i></button></a>
-		<a href="/tickets/{{ $tk->previous }}" ><button type="button" class="btn btn-warning float-right ml-2"><i class="fas fa-angle-left"></i></button></a>
-		<a href="/tickets" ><button type="button" class="btn btn-warning float-right ml-2"><i class="
+		<a href="/tickets/open/{{ $status }}/{{ $tk->previous }}" ><button type="button" class="btn btn-warning float-right ml-2"><i class="fas fa-angle-left"></i></button></a>
+		<a href="/tickets/open/{{ $status }}" ><button type="button" class="btn btn-warning float-right ml-2"><i class="
 fas fa-angle-double-left"></i></button></a>
 	</div>
 </div>
